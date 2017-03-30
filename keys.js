@@ -1,7 +1,7 @@
 /**
  * Created by blair on 3/24/17.
  */
-console.log("Keys are loaded.")
+// console.log("Keys are loaded.")
 
 exports.twitterKeys = {
     consumer_key: 'Kp98eSpNuN82MZcr4zwWpapgb',

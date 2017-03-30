@@ -56,6 +56,7 @@ function liri()
 
         T.get('statuses/user_timeline', options, function (err, data) {
             for (var i = 0; i < data.length; i++) {
+                console.log("--------------------------");
                 console.log(data[i].text);
                 console.log(data[i].created_at);
             }
@@ -76,6 +77,7 @@ function liri()
                 return;
             }
             else {
+                console.log("--------------------------");
                 console.log("Spotify Info:");
                 console.log("Song title: " + data.tracks.items[0].name);
                 console.log("Artist: " + data.tracks.items[0].artists[0].name);
@@ -101,7 +103,7 @@ function liri()
 
                 // Parse the body of the site and recover the data
 
-
+                console.log("--------------------------");
                 console.log("TITLE: " + JSON.parse(body).Title);
                 console.log("PLOT: " + JSON.parse(body).Plot);
                 console.log("The movie was released in: " + JSON.parse(body).Year);
