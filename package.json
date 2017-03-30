@@ -1,0 +1,18 @@
+{
+  "name": "nodehw",
+  "version": "1.0.0",
+  "description": "node hw assignment",
+  "main": "liri.js",
+  "dependencies": {
+    "request": "^2.81.0",
+    "spotify": "^0.3.0",
+    "twit": "^2.2.5",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Blair Erickson",
+  "license": "ISC"
+}
