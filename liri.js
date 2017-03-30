@@ -37,17 +37,12 @@ var query = "";
 
 // grabs all the words after the initial command and compiles them into the query
 for (var i = 3; i < process.argv.length; i++) {
-    query = query + "+" + process.argv[i];
+    query = query + " + " + process.argv[i];
 }
 
 //master function calling all sub commands of LIRI
 function liri()
 {
-
-    console.log("LIRI activated.");
-    console.log(command);
-    console.log(query);
-
 
 // trigger Twitter API if my-tweets command issued
     if (command == "my-tweets") {
@@ -82,10 +77,10 @@ function liri()
             }
             else {
                 console.log("Spotify Info:");
-                console.log(data.tracks.items[0].name);
-                console.log(data.tracks.items[0].artists[0].name);
-                console.log(data.tracks.items[0].album.name);
-                console.log(data.tracks.items[0].album.external_urls);
+                console.log("Song title: " + data.tracks.items[0].name);
+                console.log("Artist: " + data.tracks.items[0].artists[0].name);
+                console.log("Album: " + data.tracks.items[0].album.name);
+                console.log("Spotify link: " + data.tracks.items[0].album.external_urls.spotify);
 
 
             }
@@ -104,12 +99,13 @@ function liri()
 
             if (!error && response.statusCode === 200) {
 
-                // Parse the body of the site and recover just the imdbRating
-                // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+                // Parse the body of the site and recover the data
+
+
                 console.log("TITLE: " + JSON.parse(body).Title);
                 console.log("PLOT: " + JSON.parse(body).Plot);
                 console.log("The movie was released in: " + JSON.parse(body).Year);
-                console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
+                console.log("The movie's IMDB rating is: " + JSON.parse(body).imdbRating);
                 console.log("Made in: " + JSON.parse(body).Country);
                 console.log("Language: " + JSON.parse(body).Language);
                 console.log("RottenTomatoes score: " + JSON.parse(body).Ratings[1].Value);
@@ -126,20 +122,15 @@ if (command == "do-what-it-says") {
 
     fs.readFile("random.txt", "utf8", function (error, data) {
 
-        // Then split it by commas (to make it more readable)
        dataArr = data.split(",");
 
-        // We will then re-display the content as an array for later use.
-        console.log(dataArr[0] + dataArr[1]);
-
+        command = dataArr[0];
+        query = dataArr[1];
+        liri();
     });
 
-  command = dataArr[0];
-  query = dataArr[1];
-    liri();
+
 }
 
 
 liri();
-
-console.log(dataArr[0]);
