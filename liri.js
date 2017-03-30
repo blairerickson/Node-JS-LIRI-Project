@@ -44,6 +44,11 @@ for (var i = 3; i < process.argv.length; i++) {
 function liri()
 {
 
+    console.log("LIRI activated.");
+    console.log(command);
+    console.log(query);
+
+
 // trigger Twitter API if my-tweets command issued
     if (command == "my-tweets") {
 
@@ -125,7 +130,7 @@ if (command == "do-what-it-says") {
        dataArr = data.split(",");
 
         // We will then re-display the content as an array for later use.
-        console.log(dataArr);
+        console.log(dataArr[0] + dataArr[1]);
 
     });
 
